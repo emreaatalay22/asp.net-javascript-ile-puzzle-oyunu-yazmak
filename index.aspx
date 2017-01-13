@@ -30,7 +30,7 @@
                 var boardState = [];
                 var emptyRow, emptyCol;
                 //var degisken1 = make_random_board(rows, cols);
-                var degisken2 = listToMatrix(puzzleBoard, rows);
+                var degisken2 = listToMatrix(puzzleBoard, cols);
                 empty_row = parseInt(puzzleBoard.indexOf((rows * cols) - 1) / rows);
                 empty_col = puzzleBoard.indexOf((rows * cols) - 1) % rows;
                 var selectElement = document['getElementById']('puzzle-board');
