@@ -95,19 +95,15 @@ namespace Puzzle.Game
         public byte DragDropIsFinish(PuzzleBoardUI entity, int dragMoveIndex)
         {
             byte result = 0;
-
-            bool isDrage = false;
-
+ 
             entity.Counter++;
             counter = entity.Counter;
-
 
             if (entity.LastPuzzleBoard.Where(c => c.Index == dragMoveIndex).Any())
             {
                 var square = entity.LastPuzzleBoard.Where(c => c.Value == dragMoveIndex).First();
 
                 var emptySquare = entity.LastPuzzleBoard.Where(c => c.IsEmpty).First();// entity.LastPuzzleBoard.Where(c => c.Index == dropMoveIndex).First();
-
 
                 if (square.ListMovePosition.Where(c => c.MoveIndex == emptySquare.Index).Any())
                 {
@@ -118,33 +114,10 @@ namespace Puzzle.Game
 
                     square.IsEmpty = true;
                     emptySquare.IsEmpty = false;
-
-
                 }
-
-
-
-
-                //var dropIndex = entity.LastPuzzleBoard.Where(c => c.Index == square.Value).First();
-
-                //var dragIndex = entity.LastPuzzleBoard.Where(c => c.Index == dropMoveIndex).First();
-
-                //if (dragIndex.IsEmpty && dropIndex.ListMovePosition.Where(c => c.MoveIndex == dragIndex.Value).Any())
-                //{
-                //    result = 1;
-
-                //    int value = entity.LastPuzzleBoard.Where(c => c.Index == dropMoveIndex).First().Value;
-
-                //    entity.LastPuzzleBoard.Where(c => c.Index == dropMoveIndex).First().Value = entity.LastPuzzleBoard.Where(c => c.Index == dragMoveIndex).First().Value;
-
-                //    entity.LastPuzzleBoard.Where(c => c.Index == dragMoveIndex).First().Value = value;
-
-                //    entity.LastPuzzleBoard.Where(c => c.Index == dragMoveIndex).First().IsEmpty = false;
-                //    entity.LastPuzzleBoard.Where(c => c.Index == dropMoveIndex).First().IsEmpty = true;
-                //}
             }
 
-
+            //Hamle başarılı ise
             if (result == 1)
             {
                 bool isFinish = true;
